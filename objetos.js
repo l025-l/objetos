@@ -13,3 +13,15 @@ function probarAtributos() {
         console.log("Esta vivo");
     }
 }
+
+function modificarAtributos() {
+    let cuenta = {
+        numeros: "5422642",
+        saldos: 0.0
+    }
+    console.log(cuenta.saldos);
+    cuenta.saldos = 100;
+    console.log(cuenta.saldos);
+    cuenta.saldos += 10;
+    console.log(cuenta.saldos)
+}

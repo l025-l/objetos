@@ -25,3 +25,14 @@ function modificarAtributos() {
     cuenta.saldos += 10;
     console.log(cuenta.saldos)
 }
+
+function crearCliente() {
+    let cliente = {
+        cedula: "11565496344",
+        nombre: "Pepito"
+    }
+    let cliente1 = {}
+    cliente1.nombre = "Ramiro";
+    cliente1.apellido = "Salazar";
+    cliente1.cedula = "2136548975";
+}

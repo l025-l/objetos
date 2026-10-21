@@ -27,6 +27,19 @@ function crearCliente() {
     agregarCliente(nuevoCliente);
 }
 
+function ejecutarBusqueda() {
+    let valorCedula = recuperaraTexto("txtCedulaBusqueda");
+    let cliente = buscarClientes(valorCedula);
+
+    if (cliente == null) {
+        alert("Cliente no encontrado")
+    }else {
+        mostrarTextoEnCaja("txtCedula", cliente.cedula);
+        mostrarTextoEnCaja("txtNombre", cliente.nombre);
+        mostrarTextoEnCaja("txtEdad", cliente.edad);
+    }
+}
+
 function buscarClientes(cedula) {
     let elementoCliente;
     let clienteEncontrado = null; 

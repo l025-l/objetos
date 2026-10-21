@@ -4,6 +4,42 @@ let clientes = [
     {cedula: "3695698514", nombre: "Pepe", edad: 22}
 ];
 
+function agregarCliente(cliente) {
+    let resultado;
+    resultado = buscarClientes(cliente.cedula);
+    if (resultado == null) {
+        clientes.push(cliente);
+        alert("Cliente agregado")
+        mostrarClientes();
+    }else {
+        alert("Ya existe cliente con la cedula: "+cliente.cedula)
+    }
+}
+
+function crearCliente() {
+    let valorCedula = recuperaraTexto("txtCedula");
+    let valorNombre = recuperaraTexto("txtNombre");
+    let valorEdad = recuperarInt("txtEdad");
+    let nuevoCliente = {};
+    nuevoCliente.cedula = valorCedula;
+    nuevoCliente.nombre = valorNombre;
+    nuevoCliente.edad = valorEdad;
+    agregarCliente(nuevoCliente);
+}
+
+function buscarClientes(cedula) {
+    let elementoCliente;
+    let clienteEncontrado = null; 
+    for (let i=0; i<clientes.length;i++) {
+        elementoCliente = clientes[i];
+        if (elementoCliente.cedula == cedula) {
+            clienteEncontrado = elementoCliente;
+            break
+        }
+    }
+    return clienteEncontrado;
+}
+
 function mostrarClientes() {
     let cmpTabla = document.getElementById("tablaClientes");
     let elementoCliente;

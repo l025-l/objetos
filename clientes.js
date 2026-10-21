@@ -16,6 +16,27 @@ function agregarCliente(cliente) {
     }
 }
 
+function guardarCambios() {
+    let valorCedula = recuperaraTexto("txtCedula");
+    let valorNombre = recuperaraTexto("txtNombre");
+    let valorEdad = recuperarInt("txtEdad");
+    let datoCliente = {};
+    datoCliente.cedula = valorCedula;
+    datoCliente.nombre = valorNombre;
+    datoCliente.edad = valorEdad;
+    modificarClinete(datoCliente);
+    // mostrar en la tabla
+    mostrarClientes();
+}
+
+function modificarClinete(cliente) {
+    let clienteEncontrado = buscarClientes(cliente.cedula);
+    if (clienteEncontrado != null) {
+        clienteEncontrado.nombre = cliente.nombre;
+        clienteEncontrado.edad = cliente.edad;
+    }
+} 
+
 function crearCliente() {
     let valorCedula = recuperaraTexto("txtCedula");
     let valorNombre = recuperaraTexto("txtNombre");
